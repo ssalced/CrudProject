@@ -1,0 +1,6 @@
+com\proyecto\crud\model\usuario.class
+com\proyecto\crud\controller\usuarioController.class
+com\proyecto\crud\config\WebConfig.class
+com\proyecto\crud\config\WebConfig$1.class
+com\proyecto\crud\CrudApplication.class
+com\proyecto\crud\repositories\usuarioRepository.class
