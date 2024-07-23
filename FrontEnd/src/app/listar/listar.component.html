@@ -1,0 +1,51 @@
+
+
+<div>
+    <button type="button" class="btn btn-primary" routerLink="/crear">Agregar usuario</button>
+</div>
+@if (usuarios.length == 0) {
+    <div class="alert alert-warning">No hay registros en el sistema!</div>
+    } @else {
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                 
+                <th>nombres</th>
+                <th>apellidos</th>
+                <th>cedula</th>
+                <th>correo</th>
+                <th>direccion</th>
+                <th>noCelular</th>
+                <th>fecha Nacimiento</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+            @for (user of usuarios; track $index) {
+            <tr>
+                 
+                <td> {{user.nombres}} </td>
+                <td> {{user.apellidos}} </td>
+                <td> {{user.cedula}} </td>
+                <td> {{user.correo}} </td>
+                <td> {{user.direccion}} </td>
+                <td> {{user.noCelular}} </td>
+                <td> {{user.fechaNacimiento}} </td>
+                
+                
+                <td>
+                    
+                    <button class="btn btn-danger btn-sm" (click)="borrarUsuarios(user.id)">Eliminar</button>
+                </td>
+                <td>
+                    <button class="btn btn-info btn-sm" routerLink="/editar/{{user.id}}"
+                    >
+                        Actualizar
+                    </button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }

@@ -1,0 +1,91 @@
+<div class="card-header text-center">{{operacion}} Usuario</div>
+<div class="card-body">
+<form (submit)="createItem()">
+    <div>
+        <input placeholder="Nombres" name="nombres" [(ngModel)]="usuario.nombres" class="form-control my-2" required
+            #nombres="ngModel">
+
+        @if (nombres.invalid && (nombres.dirty || nombres.touched)) {
+        @if(nombres.errors!['required']){
+        <div class="text-danger">
+            Nombre es requerido
+        </div>
+        }
+        }
+    </div>
+    <div>
+        <input placeholder="Apellidos" name="apellidos" [(ngModel)]="usuario.apellidos" required
+            class="form-control my-2" #apellidos="ngModel">
+
+        @if (apellidos.invalid && (apellidos.dirty || apellidos.touched)) {
+        @if(apellidos.errors!['required']){
+        <div class="text-danger">
+            El Apellido es requerido
+        </div>
+        }
+        }
+    </div>
+
+    <div>
+        <input placeholder="Correo" name="correo" [(ngModel)]="usuario.correo" class="form-control my-2"
+            type="email" required email #correo="ngModel">
+        @if (correo.invalid && (correo.dirty || correo.touched)) {
+        @if(correo.errors!['required']){
+        <div class="text-danger">
+            El email es requerido
+        </div>
+        }
+        @if(correo.errors!['email']){
+        <div class="text-danger">
+            El email no tiene formato correcto!
+        </div>
+        }
+        }
+    </div>
+    <div>
+        <input placeholder="Cedula" name="cedula" [(ngModel)]="usuario.cedula"
+            class="form-control my-2" required minlength="12" #cedula="ngModel">
+        @if (cedula.invalid && (cedula.dirty || cedula.touched)) {
+        @if(cedula.errors!['required']){
+        <div class="text-danger">
+            La cedula es requerida
+        </div>
+        }
+        
+        }
+    </div>
+    <div>
+        <input placeholder="NoCelular" name="nocelular" [(ngModel)]="usuario.noCelular" class="form-control my-2" required
+            #nocelular="ngModel">
+
+        @if (nocelular.invalid && (nocelular.dirty || nocelular.touched)) {
+        @if(nocelular.errors!['required']){
+        <div class="text-danger">
+            No celular es requerido
+        </div>
+        }
+        }
+    </div>
+    <div>
+        <input placeholder="Direccion" name="direccion" [(ngModel)]="usuario.direccion" class="form-control my-2"
+               #direccion="ngModel">
+    
+    </div>
+    <div>
+        <input type="date" name="fnacimiento" [(ngModel)]="usuario.fechaNacimiento" class="form-control my-2"  />
+       </div>
+
+   
+    
+    
+
+    <div>
+        <button type="submit" class="btn btn-primary m-2" >
+            {{(usuario.id > 0)? 'Update': 'Create'}}
+        </button>
+        <button type="button" class="btn btn-primary m-2" routerLink="/">
+            volver
+        </button>
+    </div>
+  </form>
+</div>
